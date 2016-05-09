@@ -68,14 +68,16 @@
 % subject (first and last name) with the hardcoded text
 % "Curriculum vitae" under it.
 \renewcommand\part[1]{%
-    \twocolumn[%
+    %\twocolumn[%
     \begin{center}
 	\vskip-\lastskip%
 	{\usekomafont{part} #1} \medskip\\
 	% DON'T PRINT CURRICULUM VITAE UNDER NAME 
 	%{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
 	\bigskip
-    \end{center}]}
+    \end{center}
+    %]
+    }
 
 % Overrides the \section command to capitalize every
 % word for cosmetic purposes and draws a rule under it.
@@ -106,7 +108,7 @@
 % \personal[optional: web site without scheme (no http:// prefix)]
 %          {address}{phone number}{email}{github}
 % ]|
-\newcommand\personal[5][]{%
+\newcommand\personal[5]{%
     \needspace{0.5\textheight}%
     \newdimen\boxwidth%
     \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
@@ -114,9 +116,9 @@
     \begin{tabularx}{\boxwidth}{c|X}
     \Writinghand & {#2}\smallskip\\
     \Telefon     & {#3}\smallskip\\
-    \Letter      & \href{mailto:#4}{#4}
-    \ifstrempty{#1}{}{\smallskip\\ \Lightning & \href{http://#1}{#1}}
-    \ifstrempty{#5}{}{\smallskip\\ \textsc{g}\textsc{h} & \href{https://github.com/#5}{#5}}
+    \Letter      & \href{mailto:#4}{#4}\smallskip\\
+    \Lightning   & \href{http://#1}{#1}\smallskip\\
+    \textsc{g}\textsc{h} & \href{https://github.com/#5}{#5}
     \end{tabularx}}}
 
 % Every \item can be followed by one or more paragraphs
