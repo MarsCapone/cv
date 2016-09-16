@@ -5,3 +5,6 @@ all:
 
 clean:
 	rm *.aux *.log *.out
+
+deep-clean:
+	rm *.aux *.log *.out *.pdf
